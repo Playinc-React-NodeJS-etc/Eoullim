@@ -7,6 +7,8 @@ import Board from './pages/Board/Board';
 import Splash from './pages/Splash/Splash';
 import MessagePage from './pages/Message/MessagePage';
 import ProfilePage from './pages/Profile/ProfilePage';
+import Login from './pages/Auth/Login';
+import Signup from './pages/Auth/Signup';
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
@@ -30,6 +32,8 @@ const App: React.FC = () => (
         <Route path="/board" component={Board} exact={true} />
         <Route path="/message" component={MessagePage} exact={true} />
         <Route path="/profile" component={ProfilePage} exact={true} />
+        <Route path="/login" component={Login} exact={true} />
+        <Route path="/signup" component={Signup} exact={true} />
         <Redirect exact from="/" to="/splash" />
       </IonRouterOutlet>
     </IonReactRouter>
