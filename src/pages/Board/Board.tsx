@@ -31,15 +31,12 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <div className="main-container">
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonTitle>어울림</IonTitle>
-            </IonButtons>
-            <IonTitle className="small-title">쪽지함</IonTitle>
-            <IonButtons slot="end">
-              <IonButton>👤</IonButton>
-            </IonButtons>
-          </IonToolbar>
+          <header className="board-header">
+            <button onClick={() => history.push('/main')} className="back-button">
+              ←
+            </button>
+            <h1 className="board-title">자유게시판</h1>
+          </header>
           {samplePosts.map((post) => (
             <IonCard key={post.id}>
               <IonCardHeader>
@@ -52,6 +49,7 @@ const Home: React.FC = () => {
                   <div>
                     <span role="img" aria-label="thumbs up">👍</span> {post.likes}
                     <span role="img" aria-label="comments" style={{ marginLeft: '10px' }}>💬</span> {post.comments}
+                    <button className="action-button" onClick={() => history.push('/messages/write')}>⋮</button>
                   </div>
                   <div>
                     {post.author} {post.date}

@@ -52,6 +52,7 @@ const Home: React.FC = () => {
                   <div>
                     <span role="img" aria-label="thumbs up">👍</span> {post.likes}
                     <span role="img" aria-label="comments" style={{ marginLeft: '10px' }}>💬</span> {post.comments}
+                    <button className="action-button" onClick={() => history.push('/messages/write')}>⋮</button>
                   </div>
                   <div>
                     {post.author} {post.date}

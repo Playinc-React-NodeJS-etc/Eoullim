@@ -36,3 +36,37 @@ justify-content: space-between;
 align-items: center;
 margin-bottom: 15px;
 }
+
+.action-button {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.board-title {
+  margin: 0;
+  font-size: 18px;
+  flex-grow: 1;
+  text-align: right;
+  color: #000000;
+  margin-right: 10px;
+}
+
+.back-button {
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  margin-left: 10px;
+}
