@@ -1,0 +1,49 @@
+.slot-label {
+    color: black;
+  }
+
+.message-write-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 18px;
+    justify-content: space-between;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.board-write-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px 0;
+}
+
+.board-write-eoullim {
+    display: flex;
+    justify-content: left;
+    margin-right: 100px;
+}
+
+.left-title {
+    position: absolute;
+    left: 15px;
+    color: #000000;
+}
+
+.center-title {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+    color: #000000;
+}

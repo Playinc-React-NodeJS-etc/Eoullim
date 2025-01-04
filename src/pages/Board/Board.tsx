@@ -32,7 +32,7 @@ const Home: React.FC = () => {
         </IonHeader>
         <div className="main-container">
           <header className="board-header">
-            <button onClick={() => history.push('/main')} className="back-button">
+            <button onClick={() => history.push('/home')} className="back-button">
               ←
             </button>
             <h1 className="board-title">자유게시판</h1>

@@ -4,6 +4,7 @@ import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home/Home';
 import Board from './pages/Board/Board';
+import BoardWrite from './pages/Board/BoardWrite';
 import Splash from './pages/Splash/Splash';
 import MessagePage from './pages/Message/MessagePage';
 import ProfilePage from './pages/Profile/ProfilePage';
@@ -32,6 +33,7 @@ const App: React.FC = () => (
         <Route path="/splash" component={Splash} exact={true} />
         <Route path="/home" component={Home} exact={true} />
         <Route path="/board" component={Board} exact={true} />
+        <Route path="/board-write" component={BoardWrite} exact={true} />
         <Route path="/message" component={MessagePage} exact={true} />
         <Route path="/message-write" component={MessageWrite} exact={true} />
         <Route path="/profile" component={ProfilePage} exact={true} />
