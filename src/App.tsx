@@ -12,6 +12,7 @@ import Login from './pages/Auth/Login';
 import Signup from './pages/Auth/Signup';
 import WithdrawPage from './pages/Withdraw/WithdrawPage';
 import MessageWrite from './pages/Message/MessageWrite';
+import PostDetailPage from './pages/Post/PostDetailPage';
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
@@ -40,6 +41,7 @@ const App: React.FC = () => (
         <Route path="/login" component={Login} exact={true} />
         <Route path="/signup" component={Signup} exact={true} />
         <Route path="/withdraw" component={WithdrawPage} exact={true} />
+        <Route path="/post-detail" component={PostDetailPage} exact={true} />
         <Redirect exact from="/" to="/splash" />
       </IonRouterOutlet>
     </IonReactRouter>
