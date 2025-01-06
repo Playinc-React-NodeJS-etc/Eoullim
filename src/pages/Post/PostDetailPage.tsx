@@ -22,11 +22,12 @@ const Home: React.FC = () => {
     comments: 100
   };
 
-  const comments = [
-    { id: 1, author: '익명', content: '어울림 최고', date: '12/04' },
-    { id: 2, author: '익명', content: '어울림 최고', date: '12/04' },
-    { id: 3, author: '익명', content: '어울림 최고', date: '12/04' },
-  ];
+  const comments = Array.from({ length: 3 }, (_, index) => ({
+    id: index + 1,
+    author: '익명',
+    content: '어울림 최고',
+    date: '12/04'
+  }));
 
   return (
     <IonPage>
@@ -37,15 +38,12 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <div className="main-container">
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonTitle>어울림</IonTitle>
-            </IonButtons>
-            <IonTitle className="small-title">쪽지함</IonTitle>
-            <IonButtons slot="end">
-              <IonButton>👤</IonButton>
-            </IonButtons>
-          </IonToolbar>
+          <header className="board-header">
+            <button onClick={() => history.push('/home')} className="back-button">
+              ←
+            </button>
+            <h1 className="board-title">자유게시판</h1>
+          </header>
           <IonCard key={samplePost.id}>
             <IonCardHeader>
               <IonCardSubtitle>{samplePost.category}</IonCardSubtitle>
@@ -66,36 +64,23 @@ const Home: React.FC = () => {
             </IonCardContent>
           </IonCard>
           <IonList>
-            <IonItem>
-              <IonLabel>
-                <div className="comments-section">
-                  {comments.map(comment => (
-                    <div key={comment.id} className="comment">
+            {comments.map(comment => (
+              <IonItem key={comment.id}>
+                <IonLabel>
+                    <div className="comment">
                       <div className="comment-author-info">
                         <img src="/default-profile.png" alt="프로필" className="comment-profile" />
-                        <div className="comment-details" style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                          <span className="comment-author">{comment.author}</span>
-                          <span className="comment-content">{comment.content}</span>
-                          <div style={{ display: 'flex', alignItems: 'center' }}>
-                            <span className="comment-date">{comment.date}</span>
-                            <button className="action-button" onClick={() => history.push('/messages/write')}>⋮</button>
-                          </div>
-                        </div>
+                        <span className="comment-author">{comment.author}</span>
+                      </div>
+                      <span className="comment-content">{comment.content}</span>
+                      <div className="comment-actions">
+                        <span className="comment-date">{comment.date}</span>
+                        <button className="action-button" onClick={() => history.push('/messages/write')}>⋮</button>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </IonLabel>
-            </IonItem>
-            <IonItem>
-              <IonLabel>⚠️ 고객센터</IonLabel>
-            </IonItem>
-            <IonItem>
-              <IonLabel>⚠️ 이용약관</IonLabel>
-            </IonItem>
-            <IonItem>
-              <IonLabel>⚠️ 개인정보처리방침</IonLabel>
-            </IonItem>
+                </IonLabel>
+              </IonItem>
+            ))}
           </IonList>
         </div>
       </IonContent>
