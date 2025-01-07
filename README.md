@@ -4,6 +4,8 @@ classDiagram
         +samplePosts: Post[]
         +navigateToBoard()
         +navigateToBoardWrite()
+        +navigateToMessagePage().
+        +navigateToProfilePage().
     }
 
     class Board {
@@ -81,11 +83,12 @@ classDiagram
         +auth
     }
 
-
     Login --> Splash : navigates
     Splash --> Home : navigates
     Home --> Board : navigates
     Home --> BoardWrite : navigates
+    Home --> MessagePage : navigates
+    Home --> ProfilePage : navigates
     Board --> PostDetailPage : navigates
     Board --> MessageWrite : navigates
     MessagePage --> MessageWrite : navigates
