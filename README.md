@@ -15,6 +15,7 @@ classDiagram
 
     class BoardWrite {
         +title: String
+        +content: String
         +handleFileChange(event: React.ChangeEvent<HTMLInputElement>)
     }
 
@@ -40,6 +41,7 @@ classDiagram
 
     class MessageWrite {
         +title: String
+        +content: String
         +handleFileChange(event: React.ChangeEvent<HTMLInputElement>)
     }
 
