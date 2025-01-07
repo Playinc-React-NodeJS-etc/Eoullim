@@ -10,7 +10,7 @@ classDiagram
 
     class Board {
         +samplePosts: Post[]
-        +navigateToBoard()
+        +navigateToMessageWrite()
     }
 
     class BoardWrite {
