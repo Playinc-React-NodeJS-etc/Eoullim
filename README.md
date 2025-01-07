@@ -20,6 +20,14 @@ classDiagram
     }
 
     class ProfilePage {
+        +navigateToMessagePage()
+        +profile-photo: Img
+        +user-name: String
+        +user-info: String
+        +F&Q-link: String
+        +customer-center-link: String
+        +terms-of-use-link: String
+        +personal-information-link: String
         +navigateToWithdraw()
         +navigateToLogin()
     }
@@ -61,6 +69,7 @@ classDiagram
         +author: String
         +content: String
         +date: String
+        +profile-photo: img
     }
 
     class Message {
