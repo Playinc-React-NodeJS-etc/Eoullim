@@ -1,73 +1,96 @@
+```mermaid
 classDiagram
-    class WithdrawPage {
-        +useState()
-        +useHistory()
-        +handleWithdraw()
-    }
-    
-    class Splash {
-        +useEffect()
-        +useHistory()
-    }
-    
-    class ProfilePage {
-        +useHistory()
-    }
-    
-    class PostDetailPage {
-        +useHistory()
-        +navigateToBoard()
-    }
-    
-    class MessageWrite {
-        +useState()
-        +handleFileChange()
-    }
-    
-    class MessagePage {
-        +useState()
-        +useEffect()
-        +navigateToBoard()
-    }
-    
     class Home {
-        +useHistory()
+        +samplePosts: Post[]
         +navigateToBoard()
         +navigateToBoardWrite()
     }
-    
-    class BoardWrite {
-        +useState()
-        +handleFileChange()
-    }
-    
+
     class Board {
-        +useHistory()
+        +samplePosts: Post[]
         +navigateToBoard()
     }
-    
-    class Signup {
-        +useState()
-        +handleSignup()
-    }
-    
-    class Login {
-        +useState()
-        +handleLogin()
+
+    class BoardWrite {
+        +title: String
+        +handleFileChange(event: React.ChangeEvent<HTMLInputElement>)
     }
 
-    WithdrawPage --> ProfilePage : 회원탈퇴
-    ProfilePage --> WithdrawPage : 회원탈퇴
-    ProfilePage --> Login : 로그아웃
-    Splash --> Home : 자동 리다이렉트
-    Home --> PostDetailPage : 게시글 클릭
-    Home --> MessagePage : 쪽지함
-    Home --> ProfilePage : 프로필
-    Home --> Board : 더보기
-    Home --> BoardWrite : 게시글 쓰기
-    Board --> PostDetailPage : 게시글 클릭
-    Board --> BoardWrite : 게시글 쓰기
-    MessagePage --> MessageWrite : 쪽지 쓰기
-    PostDetailPage --> MessageWrite : 쪽지 쓰기
-    Login --> Home : 로그인 성공
-    Signup --> Home : 회원가입 성공
+    class PostDetailPage {
+        +samplePost: Post
+        +comments: Comment[]
+    }
+
+    class ProfilePage {
+        +navigateToWithdraw()
+        +navigateToLogin()
+    }
+
+    class Splash {
+        +useEffect()
+    }
+
+    class WithdrawPage {
+        +password: String
+        +handleWithdraw(event: React.FormEvent)
+    }
+
+    class MessagePage {
+        +samplePosts: Message[]
+    }
+
+    class MessageWrite {
+        +title: String
+        +handleFileChange(event: React.ChangeEvent<HTMLInputElement>)
+    }
+
+    class Post {
+        +id: Int
+        +author: String
+        +date: String
+        +title: String
+        +content: String
+        +category: String
+        +likes: Int
+        +comments: Int
+    }
+
+    class Comment {
+        +id: Int
+        +author: String
+        +content: String
+        +date: String
+    }
+
+    class Message {
+        +id: Int
+        +senderName: String
+        +content: String
+        +createdAt: String
+    }
+
+    class AuthService {
+        +signInWithEmailAndPassword(email: String, password: String)
+        +createUserWithEmailAndPassword(email: String, password: String)
+    }
+
+    class FirebaseAuth {
+        +auth
+    }
+
+    Home --> Board : navigates
+    Home --> BoardWrite : navigates
+    Board --> PostDetailPage : navigates
+    Board --> MessageWrite : navigates
+    MessagePage --> MessageWrite : navigates
+    PostDetailPage --> MessageWrite : navigates
+    ProfilePage --> WithdrawPage : navigates
+    WithdrawPage --> FirebaseAuth : interacts
+    BoardWrite --> FirebaseAuth : interacts
+    MessageWrite --> FirebaseAuth : interacts
+    Home --> Post : displays
+    Board --> Post : displays
+    PostDetailPage --> Post : displays
+    MessagePage --> Message : displays
+    PostDetailPage --> Comment : displays
+```
