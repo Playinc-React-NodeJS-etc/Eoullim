@@ -1,5 +1,12 @@
 ```mermaid
 classDiagram
+
+    class Splash {
+        +useEffect()
+        +navigateToHome()
+    }
+
+
     class Home {
         +samplePosts: Post[]
         +navigateToBoard()
@@ -24,10 +31,6 @@ classDiagram
     class ProfilePage {
         +navigateToWithdraw()
         +navigateToLogin()
-    }
-
-    class Splash {
-        +useEffect()
     }
 
     class WithdrawPage {
