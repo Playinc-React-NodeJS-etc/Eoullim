@@ -28,7 +28,7 @@ classDiagram
 
     class Splash {
         +useEffect()
-        +navigateToBoard()
+        +navigateToHome()
 
     }
 
