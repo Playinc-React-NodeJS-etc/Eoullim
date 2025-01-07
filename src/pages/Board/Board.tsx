@@ -58,6 +58,11 @@ const Home: React.FC = () => {
               </IonCardContent>
             </IonCard>
           ))}
+        <Link to="/board-write" className="add-button">
+          <button className="add-button">
+            +
+          </button>
+        </Link>
         </div>
       </IonContent>
     </IonPage>

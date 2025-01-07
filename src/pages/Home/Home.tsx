@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import ExploreContainer from '../../components/ExploreContainer';
 import './Home.css';
 
@@ -9,6 +9,10 @@ const Home: React.FC = () => {
 
   const navigateToBoard = () => {
     history.push('/board');
+  };
+
+  const navigateToBoardWrite = () => {
+    history.push('/board-write');
   };
 
   const samplePosts = Array(5).fill({
@@ -52,7 +56,7 @@ const Home: React.FC = () => {
                   <div>
                     <span role="img" aria-label="thumbs up">👍</span> {post.likes}
                     <span role="img" aria-label="comments" style={{ marginLeft: '10px' }}>💬</span> {post.comments}
-                    <button className="action-button" onClick={() => history.push('/messages/write')}>⋮</button>
+                    <button className="action-button" onClick={() => history.push('/message-write')}>⋮</button>
                   </div>
                   <div>
                     {post.author} {post.date}
@@ -61,6 +65,9 @@ const Home: React.FC = () => {
               </IonCardContent>
             </IonCard>
           ))}
+          <button className="add-button" onClick={navigateToBoardWrite}>
+            +
+          </button>
         </div>
       </IonContent>
     </IonPage>

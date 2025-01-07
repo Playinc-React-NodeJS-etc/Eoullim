@@ -44,3 +44,20 @@ body {
   cursor: pointer;
   margin-left: 15px;
 } 
+
+.add-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #6C63FF;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  float: right;
+  margin: 0 10px 10px 0;
+}
