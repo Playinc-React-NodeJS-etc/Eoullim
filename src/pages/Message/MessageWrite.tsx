@@ -8,6 +8,17 @@ import { IonInput, IonItem, IonList, IonText, IonButton, IonTextarea } from '@io
 const MessageWrite: React.FC = () => {
     const [title, setTitle] = useState('');
 
+    const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            const storage = getStorage();
+            const storageRef = ref(storage, `uploads/${file.name}`);
+            await uploadBytes(storageRef, file);
+            const downloadURL = await getDownloadURL(storageRef);
+            console.log('File available at', downloadURL);
+        }
+    };
+
   return (
     <div className="main-container">
       <header className="withdraw-header">
@@ -35,9 +46,15 @@ const MessageWrite: React.FC = () => {
       </div>
 
       <div className="button-container">
+        <input
+            type="file"
+            id="file-input"
+            style={{ display: 'none' }}
+            onChange={handleFileChange}
+        />
         <label htmlFor="file-input" className="upload-icon">📷</label>
         <IonButton className="ion-text-wrap" style={{ maxWidth: '400px' }}>
-          전송
+            전송
         </IonButton>
       </div>
     </div>

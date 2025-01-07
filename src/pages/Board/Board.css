@@ -37,12 +37,18 @@ align-items: center;
 margin-bottom: 15px;
 }
 
+.action-button-container {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+}
+
 .action-button {
-    border: none;
-    background-color: transparent;
-    font-size: 20px;
-    cursor: pointer;
-    margin-left: 15px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
 .board-header {
@@ -71,19 +77,8 @@ margin-bottom: 15px;
   margin-left: 10px;
 }
 
-.add-button {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background: #6C63FF;
-  color: white;
-  font-size: 32px;
-  cursor: pointer;
+.action-button-container > div {
+  margin-left: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  float: right;
-  margin: 0 10px 10px 0;
 }

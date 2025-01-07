@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import { useHistory, Link } from 'react-router-dom';
-import ExploreContainer from '../../components/ExploreContainer';
 import './Board.css';
 
 const Home: React.FC = () => {
@@ -38,20 +37,18 @@ const Home: React.FC = () => {
             <h1 className="board-title">자유게시판</h1>
           </header>
           {samplePosts.map((post) => (
-            <IonCard key={post.id}>
+            <IonCard key={post.id} onClick={() => history.push('/post-detail')}>
               <IonCardHeader>
                 <IonCardSubtitle>{post.category}</IonCardSubtitle>
                 <IonCardTitle>{post.title}</IonCardTitle>
               </IonCardHeader>
               <IonCardContent>
                 <p>{post.content}</p>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <div>
-                    <span role="img" aria-label="thumbs up">👍</span> {post.likes}
-                    <span role="img" aria-label="comments" style={{ marginLeft: '10px' }}>💬</span> {post.comments}
-                    <button className="action-button" onClick={() => history.push('/messages/write')}>⋮</button>
-                  </div>
-                  <div>
+                <div className="action-button-container">
+                  <span role="img" aria-label="thumbs up">👍</span> {post.likes}
+                  <span role="img" aria-label="comments" style={{ marginLeft: '10px' }}>💬</span> {post.comments}
+                  <button onClick={(e) => { e.stopPropagation(); history.push('/message-write'); }}>⋮</button>
+                <div>
                     {post.author} {post.date}
                   </div>
                 </div>
