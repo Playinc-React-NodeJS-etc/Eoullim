@@ -1,7 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
 import { useHistory } from 'react-router-dom';
-import ExploreContainer from '../../components/ExploreContainer';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -37,11 +36,11 @@ const Home: React.FC = () => {
         <div className="main-container">
           <IonToolbar>
             <IonButtons slot="start">
-              <IonTitle>어울림</IonTitle>
+              <IonTitle onClick={() => history.push('/home')}>어울림</IonTitle>
             </IonButtons>
-            <IonTitle className="small-title">쪽지함</IonTitle>
+            <IonTitle className="small-title" onClick={() => history.push('/message')}>쪽지함</IonTitle>
             <IonButtons slot="end">
-              <IonButton>👤</IonButton>
+              <IonButton onClick={() => history.push('/profile')}>👤</IonButton>
             </IonButtons>
           </IonToolbar>
           {samplePosts.map((post) => (
@@ -50,13 +49,21 @@ const Home: React.FC = () => {
                 <IonCardSubtitle>{post.category}</IonCardSubtitle>
                 <IonCardTitle>{post.title}</IonCardTitle>
               </IonCardHeader>
-              <IonCardContent>
+              <IonCardContent onClick={() => history.push('/post-detail')}>
                 <p>{post.content}</p>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div>
                     <span role="img" aria-label="thumbs up">👍</span> {post.likes}
                     <span role="img" aria-label="comments" style={{ marginLeft: '10px' }}>💬</span> {post.comments}
-                    <button className="action-button" onClick={() => history.push('/message-write')}>⋮</button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        history.push('/message-write');
+                      }}
+                      className="action-button"
+                    >
+                      ⋮
+                    </button>
                   </div>
                   <div>
                     {post.author} {post.date}
