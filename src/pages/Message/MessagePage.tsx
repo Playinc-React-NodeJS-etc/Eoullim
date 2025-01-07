@@ -30,11 +30,11 @@ const Home: React.FC = () => {
         <div className="main-container">
           <IonToolbar>
             <IonButtons slot="start">
-              <IonTitle className="small-title">어울림</IonTitle>
+              <IonTitle onClick={() => history.push('/home')} className="small-title">어울림</IonTitle>
             </IonButtons>
-            <IonTitle>쪽지함</IonTitle>
+            <IonTitle onClick={() => history.push('/message')}>쪽지함</IonTitle>
             <IonButtons slot="end">
-              <IonButton>👤</IonButton>
+              <IonButton onClick={() => history.push('/profile')}>👤</IonButton>
             </IonButtons>
           </IonToolbar>
           {samplePosts.map((post) => (
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
                     보낸 시간: {post.createdAt}
                   </div>
                   <div>
-                    <button>⋮</button>
+                    <button onClick={() => history.push('/message-write')}>⋮</button>
                   </div>
                 </div>
               </IonCardContent>

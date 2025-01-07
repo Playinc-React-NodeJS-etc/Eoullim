@@ -10,7 +10,7 @@ const WithdrawPage: React.FC = () => {
   const handleWithdraw = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/withdraw', {
+      await fetch('/api/withdraw', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -18,15 +18,9 @@ const WithdrawPage: React.FC = () => {
         body: JSON.stringify({ password }),
       });
 
-      if (response.ok) {
-        alert('회원탈퇴가 완료되었습니다.');
-        history.push('/signup');
-      } else {
-        alert('회원탈퇴에 실패했습니다. 다시 시도해주세요.');
-      }
+      history.push('/signup');
     } catch (error) {
-      console.error('Error:', error);
-      alert('오류가 발생했습니다. 다시 시도해주세요.');
+      console.error('Error during withdrawal:', error);
     }
   };
 
@@ -48,12 +42,13 @@ const WithdrawPage: React.FC = () => {
       </IonInput>
 
       <div className="withdraw-button-container">
-        <IonButton className="ion-text-wrap" style={{ maxWidth: '400px' }}>
+        <IonButton
+          className="ion-text-wrap"
+          onClick={handleWithdraw}
+        >
           회원탈퇴
         </IonButton>
       </div>
-
-
     </div>
   );
 };
