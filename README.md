@@ -4,8 +4,8 @@ classDiagram
         +samplePosts: Post[]
         +navigateToBoard()
         +navigateToBoardWrite()
-        +navigateToMessagePage().
-        +navigateToProfilePage().
+        +navigateToMessagePage()
+        +navigateToProfilePage()
     }
 
     class Board {
@@ -16,11 +16,6 @@ classDiagram
     class BoardWrite {
         +title: String
         +handleFileChange(event: React.ChangeEvent<HTMLInputElement>)
-    }
-
-    class PostDetailPage {
-        +samplePost: Post
-        +comments: Comment[]
     }
 
     class ProfilePage {
@@ -89,17 +84,14 @@ classDiagram
     Home --> BoardWrite : navigates
     Home --> MessagePage : navigates
     Home --> ProfilePage : navigates
-    Board --> PostDetailPage : navigates
     Board --> MessageWrite : navigates
     MessagePage --> MessageWrite : navigates
-    PostDetailPage --> MessageWrite : navigates
     ProfilePage --> WithdrawPage : navigates
     WithdrawPage --> FirebaseAuth : interacts
     BoardWrite --> FirebaseAuth : interacts
     MessageWrite --> FirebaseAuth : interacts
     Home --> Post : displays
     Board --> Post : displays
-    PostDetailPage --> Post : displays
+    Post --> Comment : navigates
     MessagePage --> Message : displays
-    PostDetailPage --> Comment : displays
 ```
