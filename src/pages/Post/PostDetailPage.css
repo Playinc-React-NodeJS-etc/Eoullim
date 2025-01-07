@@ -46,3 +46,9 @@
 .comment-profile {
     margin-right: 10px;
     }
+
+.action-button-container {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+}

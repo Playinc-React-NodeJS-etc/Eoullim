@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -43,6 +43,12 @@ const Home: React.FC = () => {
               <IonButton onClick={() => history.push('/profile')}>👤</IonButton>
             </IonButtons>
           </IonToolbar>
+
+          <div className="section-header">
+            <h2 className="section-title">Hot 게시글</h2>
+            <Link to="/board" className="view-more">더보기 ›</Link>
+          </div>
+
           {samplePosts.map((post) => (
             <IonCard key={post.id}>
               <IonCardHeader>

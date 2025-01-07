@@ -51,12 +51,10 @@ const Home: React.FC = () => {
             </IonCardHeader>
             <IonCardContent>
               <p>{samplePost.content}</p>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div>
-                  <span role="img" aria-label="thumbs up">👍</span> {samplePost.likes}
-                  <span role="img" aria-label="comments" style={{ marginLeft: '10px' }}>💬</span> {samplePost.comments}
-                  <button className="action-button" onClick={() => history.push('/messages/write')}>⋮</button>
-                </div>
+              <div className="action-button-container">
+                <span role="img" aria-label="thumbs up">👍</span> {samplePost.likes}
+                <span role="img" aria-label="comments" style={{ marginLeft: '10px' }}>💬</span> {samplePost.comments}
+                <button onClick={(e) => { e.stopPropagation(); history.push('/message-write'); }}>⋮</button>
                 <div>
                   {samplePost.author} {samplePost.date}
                 </div>
