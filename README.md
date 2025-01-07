@@ -71,9 +71,10 @@ classDiagram
         +createdAt: String
     }
 
-    class AuthService {
+    class Login {
         +signInWithEmailAndPassword(email: String, password: String)
         +createUserWithEmailAndPassword(email: String, password: String)
+        +navigateToSplash()
     }
 
     class FirebaseAuth {
@@ -81,6 +82,7 @@ classDiagram
     }
 
 
+    Login --> Splash : navigates
     Splash --> Home : navigates
     Home --> Board : navigates
     Home --> BoardWrite : navigates
