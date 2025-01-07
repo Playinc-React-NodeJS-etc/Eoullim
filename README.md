@@ -80,6 +80,8 @@ classDiagram
         +auth
     }
 
+
+    Splash --> Home : navigates
     Home --> Board : navigates
     Home --> BoardWrite : navigates
     Board --> PostDetailPage : navigates
